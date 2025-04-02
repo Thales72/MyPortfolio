@@ -3,14 +3,14 @@
 #include <locale.h>
 
 int main(){
-    setlocale(LC_ALL,"Portuguese");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
     int num;
     char letra;
-    printf("Digitando um n�mero e uma letra ");
+    printf("Digitando um número e uma letra ");
     printf("\nTecle ENTER entre os dois valores: ");
     scanf(" %d", &num);
     scanf(" %c", &letra);
-    printf("\nnumero digitado: %d", num);
+    printf("\nnúmero digitado: %d", num);
     printf("\nletra digitada: %c", letra);
 
     printf("\nDigite algo para voltar...\n");
