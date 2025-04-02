@@ -179,6 +179,52 @@ int main() {
     }
     printf("No total, %d poderão servir de %d pessoas\n", contagem, n);
 
+    // 18
+    float precoVenda, mediaCusto = 0, mediaVenda = 0;
+    for(int i = 0; i < 40; i++) {
+        printf("\n\nDigite o valor de fabricação e de venda do %dº produto", i + 1);
+        scanf(" %f", &precoFabric);
+        scanf(" %f", &precoVenda);
+        mediaCusto = mediaCusto + precoFabric;
+        mediaVenda = mediaVenda + precoVenda;
+        if((precoVenda-precoFabric) > 0) {
+            printf("O preço de venda é maior. Houve lucro\n");
+        } else if((precoVenda-precoFabric) == 0) {
+            printf("Empate\n");
+        } else {
+            printf("Houve prejuízo!\n");
+        }
+    }
+    printf("O valor final da média de venda foi de %0.2f reais, e a de custo de fabricação %0.2f reais", mediaVenda/40, mediaCusto/40);
+
+    // 19
+    printf("\n\nDigite um número: ");
+    scanf(" %d", &num1);
+    if(num1 > 80) {
+        printf("%d é maior que 80\n", num1);
+    } else if(num1 < 25) {
+        printf("%d é menor que 25\n", num1);
+    } else if(num1 == 40) {
+        printf("%d é igual a 40\n", num1);
+    } else {
+        printf("Inválido");
+    }
+
+    // 20
+    printf("\n\nInforme a quantidade de entrada de dados: ");
+    scanf(" %d", &n);
+    for(int i = 0; i < n; i++) {
+        printf("\n\nDigite o %dº número: ", i+1);
+        scanf(" %d", &num1);
+        if(num1 > 0) {
+            printf("O número é positivo");
+        } else if(num1 < 0) {
+            printf("O número é negativo");
+        } else {
+            printf("O número é igual a 0");
+        }
+    }
+
     getch();
     return 0;
 }
