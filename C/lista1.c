@@ -144,7 +144,7 @@ int main() {
 
     // 16
     int contagemM = 0, contagemF = 0;
-    char genero[2]; // Ajustado para armazenar strings corretamente
+    char genero[2];
     for (int i = 0; i < 30; i++) {
         printf("\n\nInforme o nome da %dº pessoa, juntamente de seu gênero ([M] ou [F]): ", i + 1);
         scanf(" %s", nome);
@@ -160,7 +160,7 @@ int main() {
 
     // 17
     int n;
-    char saude[10]; // Ajustado para armazenar a string corretamente
+    char saude[10];
     contagem = 0;
     printf("\n\nDigite a quantidade de entrada de dados: ");
     scanf(" %d", &n);
