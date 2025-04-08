@@ -1,2 +1,3 @@
 # myPortfolio
-Atividades desenvolvidas em sala de aula
+> Aqui eu relato a minha jornada para aprender essa incrível linguagem: C
+> Espero que entenda a minha jornada aqui! 😁
