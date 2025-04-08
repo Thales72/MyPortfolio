@@ -6,7 +6,7 @@ void conversor() {
     setlocale(LC_ALL, "pt_BR.UTF-8");
     // Calcular todas as temperaturas em todas as unidades possíveis: graus, Fahrenheit ou Kelvin; Permita que o usuário escolha se repetirá o programa novamente;
     float graus;
-    char entrada, subEntrada;
+    char entrada;
     printf("\nOlá!\nBem-vindo a interface do programa conversão de temperaturas!\n");
     printf("Você deseja saber a temperatura em qual unidade? Digite K, ºF ou ºC?\n");
     scanf(" %c", &entrada);
