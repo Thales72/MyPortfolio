@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <conio.h>
 #include <locale.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 void conversor() {
     setlocale(LC_ALL, "pt_BR.UTF-8");
@@ -77,6 +79,30 @@ int main() {
         printf("\nVocê deseja executar o programa novamente? (S/N)\n");
         scanf(" %c", &loop);
         loop = toupper(loop);
+        switch(loop) {
+            case 'S':
+                continue;
+            case 'N':
+                break;
+            default:
+                printf("\nOpção inválida.\nDeseja tentar novamente? (S/N)\n");
+                scanf(" %c", &loop);
+                loop = toupper(loop);
+                if(loop == 'S') 
+                    conversor();
+                else if(loop == 'N') {
+                    printf("\nOK, BYE\n");
+                    break;
+                } else {
+                    while(loop != 'S') {
+                        printf("\nOPÇÃO INVÁLIDA. DESEJA TENTAR NOVAMENTE? (S/N) \n");
+                        scanf(" %c", &loop);
+                        loop = toupper(loop);
+                        if(loop == 'N') 
+                            break;
+                    }
+                }
+        }
     }
     printf("\nADEUS!\n");
     return 0;

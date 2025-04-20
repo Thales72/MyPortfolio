@@ -5,7 +5,7 @@
 #include <ctype.h>
 
 typedef struct{
-    char nome[50], sexo, saude[4];
+    char nome[50], sexo, saude;
     int idade;
 } Conscrito;
 
@@ -23,15 +23,18 @@ int main() {
     scanf(" %d", &n);
     Conscrito pessoa[n];
     for(int i = 0; i < n; i++) {
-        printf("\n\nDigite o nome, a idade, o sexo [M ou F] e a saúde [BOA ou RUIM]: ");
+        printf("\n\nDigite o nome, a idade, o sexo [M ou F] e a saúde [B para BOA e R para RUIM]: ");
         scanf(" %s", pessoa[i].nome);
         scanf(" %d", &pessoa[i].idade);
         scanf(" %c", &pessoa[i].sexo);
-        scanf(" %s", pessoa[i].saude);
+        scanf(" %c", &pessoa[i].saude);
         pessoa[i].sexo = toupper(pessoa[i].sexo);
-        toUpperCase(pessoa[i].saude);
-        printf(pessoa[i].nome);
-        if (pessoa[i].idade >= 18 && strcmp(pessoa[i].saude, "BOA") == 0 && pessoa[i].sexo == 'M') {
+        pessoa[i].saude = toupper(pessoa[i].saude);
+        do {
+            printf("\nInforme a saúde corretamente. B para BOA e R para RUIM\n");
+            scanf(" %c", &pessoa[i].saude);
+        } while(pessoa[i].saude != 'B' || pessoa[i].saude != 'R');
+        if (pessoa[i].idade >= 18 && pessoa[i].saude == 'B' && pessoa[i].sexo == 'M') {
             printf("O candidato %s está apto ao serviço militar\n", pessoa[i].nome);
             aptos++;
         } else {
