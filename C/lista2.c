@@ -12,7 +12,7 @@ int main() {
         scanf(" %d", &a[i]);
         scanf(" %d", &b[i]);
         c[i] = (float)(a[i] + b[i])/2;
-        printf("O valor de C[%d] é: %.2f\n", i+1, c[i]);
+        printf("O valor de C[%d] ï¿½: %.2f\n", i+1, c[i]);
     }
     getche();
 
@@ -50,9 +50,40 @@ int main() {
 
     // 4
     int a3[20], b3[20], aux;
-    for(int i = 0; i < 20; i++) {
-
+    for(int i = 0; i < 0; i++) {
+        printf("\n----------------------\nDigite o valor de A[%d] e B[%d]: ", i+1, i+1);
+        scanf(" %d", &a3[i]);
+        scanf(" %d", &b3[i]);
+        aux = a3[i];
+        a3[i] = b3[i];
+        b3[i] = aux;
+        printf("\nA[%d] e B[%d] trocados sÃ£o, respectivamente: %d e %d", i+1, i+1, a3[i], b3[i]);
     }
+    getche();
 
+    // 5
+    int a4[15], b4[15], c4[30];
+    for(int i = 0; i <30; i++) {
+        a4[i] = 0;
+        b4[i] = 0;
+        c4[i] = 0;
+    }
+    for(int i = 0; i < 15; i++) {
+        printf("\n----------------------\nDigite o valor de A[%d] e B[%d]: ", i+1, i+1);
+        scanf(" %d", &a4[i]);
+        scanf(" %d", &b4[i]);
+        c4[i] = a4[i];
+        if(i == 14) {
+            for(int j = 0; j < 15; j++) {
+                c4[j+15] = b4[j];
+            }
+        }
+    }
+    for(int i = 0; i < 30; i++) {
+        printf("\nC[%d]: %d", i+1, c4[i]);
+    }
+    getche();
+
+    
     return 0;
 }
