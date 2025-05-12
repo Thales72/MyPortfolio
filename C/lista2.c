@@ -68,22 +68,58 @@ int main() {
         b4[i] = 0;
         c4[i] = 0;
     }
-    for(int i = 0; i < 15; i++) {
+    for(int i = 0; i < 0; i++) {
         printf("\n----------------------\nDigite o valor de A[%d] e B[%d]: ", i+1, i+1);
         scanf(" %d", &a4[i]);
         scanf(" %d", &b4[i]);
         c4[i] = a4[i];
-        if(i == 14) {
-            for(int j = 0; j < 15; j++) {
-                c4[j+15] = b4[j];
-            }
-        }
+        c4[i+15] = b4[i];
     }
     for(int i = 0; i < 30; i++) {
         printf("\nC[%d]: %d", i+1, c4[i]);
     }
     getche();
 
-    
+    // 6
+    float preco[100], quantidade[100], faturamento = 0;
+    for(int i = 0; i < 0; i++) {
+        printf("\nInforme a quantidade e o preço da mercadoria com identificador %d", i+1);
+        scanf(" %f", &quantidade[i]);
+        scanf(" %f", &preco[i]);
+        faturamento = faturamento + (quantidade[i] * preco[i]);
+    }
+    printf("\nO faturamento mensal foi de R$ %.2f", faturamento);
+    getche();
+
+    // 7
+    int mat[4][5], somalinha[4], total = 0;
+    for(int i = 0; i < 4; i++) {
+        somalinha[i] = 0;
+    }
+    for(int i = 0; i < 4; i++) {
+        for(int j = 0; j < 5; j++) {
+            printf("\nInforme o elemento para a posição mat[%d][%d]: ", i+1, j+1);
+            scanf(" %d", &mat[i][j]);
+        }
+    }
+    for(int i = 0; i < 4; i++) {
+        for(int j = 0; j < 5; j++) {
+            somalinha[i] = mat[i][j] + somalinha[i];
+        }
+        total = somalinha[i] + total;
+        printf("\nA soma das linhas é: %d", somalinha[i]);
+    }
+    printf("\nA soma total das linhas foi de: %d", total);
+    getche();
+
+    // 8
+    float mat1[3][5], mat2[3][5];
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 5; j++) {
+            printf("\nInforme o elemento para a posição mat1[%d][%d] e mat2[%d][%d]: ", i+1, j+1, i+1, j+1);
+            scanf(" %f", &mat1[i][j]);
+            scanf(" %f", &mat2[i][j]);
+        }
+    }
     return 0;
 }
