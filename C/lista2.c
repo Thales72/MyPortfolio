@@ -93,16 +93,16 @@ int main() {
 
     // 7
     int mat[4][5], somalinha[4], total = 0;
-    for(int i = 0; i < 4; i++) {
+    for(int i = 0; i < 0; i++) {
         somalinha[i] = 0;
     }
-    for(int i = 0; i < 4; i++) {
+    for(int i = 0; i < 0; i++) {
         for(int j = 0; j < 5; j++) {
             printf("\nInforme o elemento para a posição mat[%d][%d]: ", i+1, j+1);
             scanf(" %d", &mat[i][j]);
         }
     }
-    for(int i = 0; i < 4; i++) {
+    for(int i = 0; i < 0; i++) {
         for(int j = 0; j < 5; j++) {
             somalinha[i] = mat[i][j] + somalinha[i];
         }
@@ -113,13 +113,41 @@ int main() {
     getche();
 
     // 8
-    float mat1[3][5], mat2[3][5];
+    float mat1[3][5], mat2[3][5], matrizSomada[3][5];
     for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 5; j++) {
+            matrizSomada[i][j] = 0;
+        }
+    }
+    for(int i = 0; i < 0; i++) {
         for(int j = 0; j < 5; j++) {
             printf("\nInforme o elemento para a posição mat1[%d][%d] e mat2[%d][%d]: ", i+1, j+1, i+1, j+1);
             scanf(" %f", &mat1[i][j]);
             scanf(" %f", &mat2[i][j]);
+            matrizSomada[i][j] = mat1[i][j] + mat2[i][j];
+            printf("A matrizSomada[%d][%d] é: %.2f", i+1, j+1, matrizSomada[i][j]);
         }
     }
+    getche();
+
+    // 9
+    float matrizQuadrada[3][3], elementoDiagonalPrincipal;
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            printf("\nInforme o elemento para a posição matrizQuadrada[%d][%d]: ", i+1, j+1);
+            scanf(" %f", &matrizQuadrada[i][j]);
+        }
+    }
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            if(i == j) {
+                elementoDiagonalPrincipal = matrizQuadrada[i][j];
+                for(int k = 0; k < 3; k++) {
+                    printf("\nA matriz quadrada modificada [%d][%d]: %.2f", i+1, k+1, matrizQuadrada[i][k]/elementoDiagonalPrincipal);
+                }
+            }
+        }
+    }
+
     return 0;
 }
