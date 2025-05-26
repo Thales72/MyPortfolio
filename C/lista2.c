@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <locale.h>
+#define n 3
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
@@ -131,14 +132,14 @@ int main() {
     getche();
 
     // 9
-    float matrizQuadrada[3][3], elementoDiagonalPrincipal;
-    for(int i = 0; i < 3; i++) {
+    float matrizQuadrada[20][20], elementoDiagonalPrincipal;
+    for(int i = 0; i < 0; i++) {
         for(int j = 0; j < 3; j++) {
             printf("\nInforme o elemento para a posição matrizQuadrada[%d][%d]: ", i+1, j+1);
             scanf(" %f", &matrizQuadrada[i][j]);
         }
     }
-    for(int i = 0; i < 3; i++) {
+    for(int i = 0; i < 0; i++) {
         for(int j = 0; j < 3; j++) {
             if(i == j) {
                 elementoDiagonalPrincipal = matrizQuadrada[i][j];
@@ -147,6 +148,46 @@ int main() {
                 }
             }
         }
+    }
+    getche();
+
+    // 10
+    float mat3[n][n];
+    for(int i = 0; i < 0; i++) {
+        for(int j = 0; j < n; j++) {
+            printf("\n\nDigite o elemento da mat3[%d][%d]: ", i+1, j+1);
+            scanf(" %f", &mat3[i][j]);
+        }
+    }
+    for(int i = 0; i < 0; i++) {
+        for(int j = 0; j < n; j++) {
+            if(i != j) {
+                printf("\nOs elementos acima ou abaixos da diagonal principal [%d][%d] são: %.2f", i+1, j+1, mat3[i][j]);
+            }
+        }
+    }
+    getche();
+
+    // 11
+    int vetor[n], vetorSR[n], frequencia, teste;
+    char logico = 1;
+
+    for(int i = 0; i < n; i++) {
+        printf("\n\nInsira os elementos do vetor[%d]: ", i+1);
+        scanf(" %d", &vetor[i]);
+        vetorSR[i] = 0;
+    }
+    for(int i = 0; i < n; i++) {
+        frequencia = 0;
+        teste = vetor[i];
+        for(int i = 0; i < n; i++) {
+            if (vetor[i] == teste) {
+                printf("\n\nValor de teste: %d", teste);
+                frequencia = frequencia + 1;
+            }
+        }
+        vetor[i] = teste;
+        printf("\nA frequência de %d no vetor foi de: %d", teste, frequencia);
     }
 
     return 0;
