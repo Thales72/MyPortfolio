@@ -6,19 +6,19 @@
 int main() {
     setlocale(LC_ALL, "Portuguese");
     // 1
-    int a[49], b[49];
-    float c[49];
+    int a[50], b[50];
+    float c[50];
     for(int i = 0; i < 0; i++) {
         printf("--------------------------\nInforme o valor de A[%d] e B[%d]! ", i+1, i+1);
         scanf(" %d", &a[i]);
         scanf(" %d", &b[i]);
         c[i] = (float)(a[i] + b[i])/2;
-        printf("O valor de C[%d] �: %.2f\n", i+1, c[i]);
+        printf("O valor de C[%d] é: %.2f\n", i+1, c[i]);
     }
     getche();
 
     // 2
-    int a1[29], b1[29];
+    int a1[30], b1[30];
     for(int i = 0; i < 0; i++) {
         a1[i] = 0;
         b1[i] = 0;
@@ -169,25 +169,33 @@ int main() {
     getche();
 
     // 11
-    int vetor[n], vetorSR[n], frequencia, teste;
-    char logico = 1;
+    int vetor[n], vetorSR[n], frequencia = 0, nRepetidos = 0, r;
+    char encontrado;
 
     for(int i = 0; i < n; i++) {
         printf("\n\nInsira os elementos do vetor[%d]: ", i+1);
         scanf(" %d", &vetor[i]);
         vetorSR[i] = 0;
     }
+
     for(int i = 0; i < n; i++) {
-        frequencia = 0;
-        teste = vetor[i];
-        for(int i = 0; i < n; i++) {
-            if (vetor[i] == teste) {
-                printf("\n\nValor de teste: %d", teste);
+        encontrado = 1;
+        if(nRepetidos >= 1) {
+            r = 1;
+            do {
+                if(vetor[i] == vetorSR[r]) {
+                    encontrado = 0;
+                }else{
+                    r = r+1;
+                }
+            } while(r < nRepetidos && encontrado == 1);
+        }
+        for(int j = 0; j < n; j++) {
+            if(vetor[j] == vetor[i]) {
                 frequencia = frequencia + 1;
+                vetorSR[nRepetidos] = vetor[i];
             }
         }
-        vetor[i] = teste;
-        printf("\nA frequência de %d no vetor foi de: %d", teste, frequencia);
     }
 
     return 0;
