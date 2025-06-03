@@ -1,7 +1,21 @@
 #include <stdio.h>
 #include <conio.h>
 #include <locale.h>
-#define n 3
+#define n 5
+
+// bolha
+void bubbleSort(int vetorBolha[], int tamanho) {
+    while(tamanho > 1) {
+        for(int i = 0; i < tamanho -1; i++) {
+            if(vetorBolha[i] > vetorBolha[i+1]) {
+                int aux = vetorBolha[i];
+                vetorBolha[i] = vetorBolha[i+1];
+                vetorBolha[i+1] = aux;
+            }
+        }
+        tamanho--;
+    }
+}
 
 int main() {
     setlocale(LC_ALL, "pt-BR.UTF-8");
@@ -179,9 +193,10 @@ int main() {
     }
 
     for(int i = 0; i < n; i++) {
+        frequencia = 0;
         encontrado = 1;
         if(nRepetidos >= 1) {
-            r = 1;
+            r = 0;
             do {
                 if(vetor[i] == vetorSR[r]) {
                     encontrado = 0;
@@ -190,12 +205,30 @@ int main() {
                 }
             } while(r < nRepetidos && encontrado == 1);
         }
-        for(int j = 0; j < n; j++) {
-            if(vetor[j] == vetor[i]) {
-                frequencia = frequencia + 1;
-                vetorSR[nRepetidos] = vetor[i];
+        if(encontrado == 1) {
+            for(int j = 0; j < n; j++) {
+                if(vetor[j] == vetor[i]) {
+                    frequencia = frequencia + 1;
+                    vetorSR[nRepetidos] = vetor[i];
+                }
             }
+            printf("\nO elemento %d se repete %d vezes", vetor[i], frequencia);
+            if(frequencia > 1) {
+                nRepetidos = nRepetidos + 1;
+            } 
         }
+    }
+    getche();
+
+    // 11 - com Bubble Sort
+    int vetorBolha[n];
+    for(int i = 0; i < n; i++) {
+        printf("\n\nInsira os elementos do vetorBolha[%d]: ", i+1);
+        scanf(" %d", &vetorBolha[i]);
+    }
+    bubbleSort(vetorBolha, n);
+    for(int i = 0; i < n; i++) {
+        printf("\nO vetor ordenado[%d] é: %d", i+1, vetorBolha[i]);
     }
 
     return 0;
