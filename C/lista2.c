@@ -169,32 +169,14 @@ int main() {
     getche();
 
     // 11
-<<<<<<< HEAD
-    int vetor[n], vetorSR[n], frequencia, teste;
-    char logico = 1;
-=======
     int vetor[n], vetorSR[n], frequencia = 0, nRepetidos = 0, r;
     char encontrado;
->>>>>>> cc8ce7b4ba3afd655fdd8961cbeaf95191a72794
 
     for(int i = 0; i < n; i++) {
         printf("\n\nInsira os elementos do vetor[%d]: ", i+1);
         scanf(" %d", &vetor[i]);
         vetorSR[i] = 0;
     }
-<<<<<<< HEAD
-    for(int i = 0; i < n; i++) {
-        frequencia = 0;
-        teste = vetor[i];
-        for(int i = 0; i < n; i++) {
-            if (vetor[i] == teste) {
-                printf("\n\nValor de teste: %d", teste);
-                frequencia = frequencia + 1;
-            }
-        }
-        vetor[i] = teste;
-        printf("\nA frequência de %d no vetor foi de: %d", teste, frequencia);
-=======
 
     for(int i = 0; i < n; i++) {
         encontrado = 1;
@@ -214,7 +196,6 @@ int main() {
                 vetorSR[nRepetidos] = vetor[i];
             }
         }
->>>>>>> cc8ce7b4ba3afd655fdd8961cbeaf95191a72794
     }
 
     return 0;
