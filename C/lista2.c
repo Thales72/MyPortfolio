@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <conio.h>
 #include <locale.h>
+#include <stdlib.h>
+#include <time.h>
+#include <ctype.h>
+#include <string.h>
 #define n 5
 
 // bolha
 void bubbleSort(int vetorBolha[], int tamanho) {
     while(tamanho > 1) {
-        for(int i = 0; i < tamanho -1; i++) {
+        for(int i = 0; i < tamanho-1; i++) {
             if(vetorBolha[i] > vetorBolha[i+1]) {
                 int aux = vetorBolha[i];
                 vetorBolha[i] = vetorBolha[i+1];
@@ -17,7 +21,28 @@ void bubbleSort(int vetorBolha[], int tamanho) {
     }
 }
 
+// maiúsculo
+void maiusculo(char str[]) {
+    for(int i = 0; i < strlen(str); i++)
+        str[i] = toupper(str[i]);
+}
+
+// remover espaços das strings
+void removerEspacos(char str[], int comprimento) {
+    int i = 0, j = 0;
+    while(i < comprimento) {
+        if(str[i] != ' ') {
+            str[j] = str[i];
+            j++;
+        }
+        i++;
+    }
+    str[j] = '\0';
+}
+
 int main() {
+    // Semente aleatória a cada execução para rand();
+    srand(time(NULL));
     setlocale(LC_ALL, "pt-BR.UTF-8");
     // 1
     int a[50], b[50];
@@ -72,7 +97,7 @@ int main() {
         aux = a3[i];
         a3[i] = b3[i];
         b3[i] = aux;
-        printf("\nA[%d] e B[%d] trocados são, respectivamente: %d e %d", i+1, i+1, a3[i], b3[i]);
+        printf("\nA[%d] e B[%d] otimizars são, respectivamente: %d e %d", i+1, i+1, a3[i], b3[i]);
     }
     getche();
 
@@ -183,7 +208,7 @@ int main() {
     getche();
 
     // 11
-    int vetor[n], vetorSR[n], frequencia = 0, nRepetidos = 0, r;
+   /*  int vetor[n], vetorSR[n], frequencia, nRepetidos = 0, r;
     char encontrado;
 
     for(int i = 0; i < n; i++) {
@@ -218,17 +243,90 @@ int main() {
             } 
         }
     }
-    getche();
+    getche(); */
 
-    // 11 - com Bubble Sort
-    int vetorBolha[n];
+    // 11 - com Bubble Sort - Crie um algoritmo que leia um vetor v[N] números inteiros. Em seguida, informe os números (sem repeti-lo) e a sua correspondente frequência.
+/*     int vetorBolha[n], frequenciaBolha;
     for(int i = 0; i < n; i++) {
-        printf("\n\nInsira os elementos do vetorBolha[%d]: ", i+1);
+        printf("\n\nInsira os elementos do vetor[%d]: ", i+1);
         scanf(" %d", &vetorBolha[i]);
     }
     bubbleSort(vetorBolha, n);
     for(int i = 0; i < n; i++) {
         printf("\nO vetor ordenado[%d] é: %d", i+1, vetorBolha[i]);
+    }
+    for(int i = 0; i < n; i++) {
+        frequenciaBolha = 0;
+        if(i == 0 || vetorBolha[i] != vetorBolha[i-1]) {
+            for(int j = 0; j < n; j++) {
+                if(vetorBolha[i] == vetorBolha[j]) {
+                    frequenciaBolha++;
+                }
+            }
+            printf("\n\nO elemento %d repete-se %d vezes", vetorBolha[i], frequenciaBolha);
+        }
+    }
+    getche(); */
+
+    // 12
+    float vet[n];
+    float pMin, pMax;
+    for(int i = 0; i < n; i++) {
+        vet[i] = (float)rand() / RAND_MAX * 100 - 1; // Geração aleatória de números do vetor
+        printf("\ni: %d|| vet[i]: %.2f", i, vet[i]);
+    }
+    pMin = vet[0];
+    pMax = vet[0];
+    for(int i = 0; i < n; i++) {
+        if(vet[i] < pMin)
+            pMin = vet[i];
+        if(vet[i] > pMax)
+            pMax = vet[i];
+    }
+    printf("\n\npMin: %.2f\npMax: %.2f", pMin, pMax);
+    getche();
+
+    // 13 - vet shiftLeft
+    float vetLeft[10], swap;
+    // Inserção de valores no vetor
+    for(int i = 0; i < 10; i++) {
+        vetLeft[i] = (float)rand() / RAND_MAX * 100-1;
+        printf("\n\ni: %d || vetor: %.2f", i, vetLeft[i]);
+    }
+    swap = vetLeft[0];
+    printf("\n\nVetor deslocado");
+    for(int i = 0; i < 10; i++) {
+        vetLeft[i] = vetLeft[i+1];
+        if(i == 9) {
+            vetLeft[i] = swap;
+        }
+        printf("\n\ni: %d || vetor: %.2f", i, vetLeft[i]);
+    }
+
+    // 14 - vetor char
+    char frase[20], fraseCopia[20], logico = 1;
+    int comprimento;
+    printf("\nDigite uma frase para verificar se ela é um palíndromo, ou seja, uma frase que possa ser lida de trás para frente. Exemplo: sacas. ");
+    fgets(frase, sizeof(frase), stdin);
+    frase[strcspn(frase, "\n")] = '\0'; // REMOVE O "\n" QUE O FGETS ADICIONA!
+    maiusculo(frase);
+    strncpy(fraseCopia, frase, 20);
+    removerEspacos(fraseCopia, strlen(fraseCopia));
+    comprimento = strlen(fraseCopia);
+    for(int i = 0; i < comprimento / 2; i++) {
+        if(fraseCopia[i] != fraseCopia[comprimento - 1 - i]) 
+            logico = 0;
+            break;
+    }
+    if(logico == 1)
+        printf("\nA frase %s é palindrômica!", frase);
+    else
+        printf("\nA frase %s não é palindrômica!", frase);
+
+    // 15
+    float a15[12][2], b15[2][2], c[12][2];
+    for(int i = 0; i < 12; i++) {
+        
     }
 
     return 0;

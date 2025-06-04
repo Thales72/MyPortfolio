@@ -30,7 +30,7 @@ int main() {
     aux = a;
     a = b;
     b = aux;
-    printf("Os valores das variáveis trocados são: A = %d, B = %d\n", a, b);
+    printf("Os valores das variáveis otimizars são: A = %d, B = %d\n", a, b);
 
     // 4
     float cotacao, dolares;

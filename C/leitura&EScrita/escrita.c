@@ -50,7 +50,7 @@ int main() {
     }
     fclose(arquivo);
 
-    printf("AMOSTRA 2 [PINTO CODE]: %s", memBuffer);
+    printf("AMOSTRA 2: %s", memBuffer);
 
     return 0;
 }
