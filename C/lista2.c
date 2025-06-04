@@ -324,10 +324,35 @@ int main() {
         printf("\nA frase %s não é palindrômica!", frase);
 
     // 15
-    float a15[12][2], b15[2][2], c[12][2];
+    float a15[12][2], b15[2][2], c15[12][2];
+    printf("\n\nMatriz A\n");
     for(int i = 0; i < 12; i++) {
-        
+        for(int j = 0; j < 2; j++) {
+            a15[i][j] = (float)rand() / RAND_MAX * 10-1;
+            printf("%.2f ", a15[i][j]);
+            c15[i][j] = 0;
+        }
+        printf("\n");
+    }
+    printf("\n\nMatriz B\n");
+    for(int i = 0; i < 2; i++) {
+        for(int j = 0; j < 2; j++) {
+            b15[i][j] = (float)rand() / RAND_MAX * 10-1;
+            printf("%.2f ", b15[i][j]);
+        }
+        printf("\n");
     }
 
+    // multiplicação de matrizes
+    printf("\n\nMatriz multiplicada\n");
+    for(int i = 0; i < 12; i++) {
+        for(int j = 0; j < 2; j++) {
+            for(int k = 0; k < 2; k++) {
+                c15[i][j] = a15[i][k] * b15[k][j] + c15[i][j];
+            }
+            printf("%.2f ", c15[i][j]);
+        }
+        printf("\n");
+    }
     return 0;
 }
