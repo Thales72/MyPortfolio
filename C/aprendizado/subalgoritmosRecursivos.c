@@ -48,17 +48,54 @@ void parPrimeiros(int n) {
 }
 
 // exec. 5 - function
-int sum(int soma, int n) {
+int sum(int n) {
     if (n == 0) {
-        return soma;
+        return 0;
     } else {
-        soma = soma + n + sum(soma, n - 1);
+        return n + sum(n - 1);
     }
-    return soma;
 }
+
+// exec. 6 - function
+int menorElementoVetor(int *vetor, int tamanho) {
+    if(tamanho == 1) {
+        return vetor[0];
+    } else {
+        int menor = menorElementoVetor(vetor, tamanho - 1);
+        if(menor < vetor[tamanho - 1]) {
+            return menor;
+        } else {
+            return vetor[tamanho - 1];
+        }
+    }
+}
+
+// exec. 7 - function
+int somaElementosVetor(int *vetor, int tamanho) {
+    if(tamanho == 1) {
+        return vetor[0];
+    } else {
+        return vetor[tamanho - 1] + somaElementosVetor(vetor, tamanho - 1);
+    }
+}
+
+// exec. 8 - function
+int somaCubica(int n) {
+    if (n == 0) {
+        return 0;
+    } else {
+        return elevado(n, 3) + somaCubica(n - 1);
+    }
+}
+
+// exec. 9
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
-    printf("%d", sum(0, 100));
+    // int vetor[] = {5, 2, 9, 1, 5, 6};
+    // int tamanho = sizeof(vetor) / sizeof(vetor[0]);
+    // printf("%d ", tamanho);
+    // printf("%d", somaElementosVetor(vetor, tamanho));
+    
     return 0;
 }
