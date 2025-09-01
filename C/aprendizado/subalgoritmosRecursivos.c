@@ -81,14 +81,23 @@ int somaElementosVetor(int *vetor, int tamanho) {
 
 // exec. 8 - function
 int somaCubica(int n) {
-    if (n == 0) {
+    if(n == 0) {
         return 0;
     } else {
         return elevado(n, 3) + somaCubica(n - 1);
     }
 }
 
-// exec. 9
+// exec. 9 - function
+int* convertio(int decimal, int *binario, int bits) {
+    if(bits == 0) {
+        return binario;
+    } else {
+        convertio(decimal/2, binario, bits - 1);
+        binario[bits - 1] = decimal % 2;
+        return binario;
+    }
+}
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
@@ -96,6 +105,10 @@ int main() {
     // int tamanho = sizeof(vetor) / sizeof(vetor[0]);
     // printf("%d ", tamanho);
     // printf("%d", somaElementosVetor(vetor, tamanho));
-    
+    int vetor[] = {0, 0, 0, 0, 0, 0, 0, 0};
+    int *resultado = convertio(3, vetor, 8);
+    for(int i = 0; i < 8; i++) {
+        printf("%d", resultado[i]);
+    }
     return 0;
 }
