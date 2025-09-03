@@ -71,7 +71,7 @@ int menorElementoVetor(int *vetor, int tamanho) {
 }
 
 // exec. 7 - function
-int somaElementosVetor(int *vetor, int tamanho) {
+float somaElementosVetor(float *vetor, int tamanho) {
     if(tamanho == 1) {
         return vetor[0];
     } else {
@@ -95,20 +95,25 @@ int* convertio(int decimal, int *binario, int bits) {
     } else {
         convertio(decimal/2, binario, bits - 1);
         binario[bits - 1] = decimal % 2;
-        return binario;
     }
+    return binario;
+}
+
+// exec. 10 - function
+float media(float *vetor, int tamanho) {
+        return somaElementosVetor(vetor, tamanho)/tamanho;
 }
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
-    // int vetor[] = {5, 2, 9, 1, 5, 6};
-    // int tamanho = sizeof(vetor) / sizeof(vetor[0]);
-    // printf("%d ", tamanho);
-    // printf("%d", somaElementosVetor(vetor, tamanho));
-    int vetor[] = {0, 0, 0, 0, 0, 0, 0, 0};
-    int *resultado = convertio(3, vetor, 8);
-    for(int i = 0; i < 8; i++) {
-        printf("%d", resultado[i]);
-    }
+    float vetor[] = {1, 3, 5};
+    int tamanho = sizeof(vetor) / sizeof(vetor[0]);
+    printf("%d ", tamanho);
+    printf("%f", media(vetor, tamanho));
+    // int vetor[] = {0, 0, 0, 0, 0, 0, 0, 0};
+    // int *resultado = convertio(6, vetor, 8);
+    // for(int i = 0; i < 8; i++) {
+    //     printf("%d", resultado[i]);
+    // }
     return 0;
 }
